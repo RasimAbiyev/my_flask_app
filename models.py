@@ -1,0 +1,22 @@
+from extensions import db
+
+class Movie(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(255), nullable=False)
+    year = db.Column(db.String(10), nullable=True)
+    rated = db.Column(db.String(10), nullable=True)
+    released = db.Column(db.String(20), nullable=True)
+    runtime = db.Column(db.String(50), nullable=True)
+    genre = db.Column(db.String(255), nullable=True)
+    director = db.Column(db.String(255), nullable=True)
+    writer = db.Column(db.String(255), nullable=True)
+    actors = db.Column(db.Text, nullable=True)
+    plot = db.Column(db.Text, nullable=True)
+    language = db.Column(db.String(255), nullable=True)
+    country = db.Column(db.String(100), nullable=True)
+    awards = db.Column(db.String(255), nullable=True)
+    poster = db.Column(db.Text, nullable=True)
+    metascore = db.Column(db.String(10), nullable=True)
+    imdb_rating = db.Column(db.String(10), nullable=True)
+    imdb_votes = db.Column(db.String(20), nullable=True)
+    imdb_id = db.Column(db.String(20), nullable=True)

@@ -1,0 +1,58 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies List</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Movies List</h1>
+    
+    <form action="/add_movie" method="POST">
+        <input type="text" name="title" placeholder="Enter movie title" required>
+        <button type="submit">Add Movie</button>
+    </form>
+
+    <h2>All Movies</h2>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Year</th>
+            <th>Genre</th>
+            <th>Director</th>
+            <th>IMDB Rating</th>
+        </tr>
+        {% for movie in movies %}
+        <tr>
+            <td>{{ movie.title }}</td>
+            <td>{{ movie.year }}</td>
+            <td>{{ movie.genre }}</td>
+            <td>{{ movie.director }}</td>
+            <td>{{ movie.imdb_rating }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="5">No movies found.</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
